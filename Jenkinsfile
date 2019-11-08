@@ -26,14 +26,14 @@ node {
     // Mark the code build 'stage'....
     stage 'Run Tests'
 
-        if(SUITE != null){
-		    echo 'SUITE'
-            if (SUITE != 'all'){
-                sh "${mvnHome}/bin/mvn clean install -Dmaven.test.failure.ignore=false -Denv.HOME=${ENVIRONMENT} -Dhub=hubtest -Dcucumber.options='-t @${SUITE}'"
-            }else{
-                sh "${mvnHome}/bin/mvn clean install -Dmaven.test.failure.ignore=false -Denv.HOME=${ENVIRONMENT} -Dhub=hubtest"
-            }
-        }
+        //if(SUITE != null){
+		  //  echo 'SUITE'
+            //if (SUITE != 'all'){
+              //  sh "${mvnHome}/bin/mvn clean install -Dmaven.test.failure.ignore=false -Denv.HOME=${ENVIRONMENT} -Dhub=hubtest -Dcucumber.options='-t @${SUITE}'"
+            //}else{
+              //  sh "${mvnHome}/bin/mvn clean install -Dmaven.test.failure.ignore=false -Denv.HOME=${ENVIRONMENT} -Dhub=hubtest"
+            //}
+        //}
 
 
 
