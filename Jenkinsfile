@@ -74,13 +74,9 @@ node {
                 returnStdout: true
                 ).trim()
 
-      GIT_EMAIL = sh (
-                  script: 'git --no-pager show -s --format=\'%ae\'',
-                  returnStdout: true
-                  ).trim()
+      
 
-      def SLACK_USER_NAME_AND_EMAIL = GIT_EMAIL.split( '@' )
-      SLACK_USER_NAME = SLACK_USER_NAME_AND_EMAIL[0]
+     
 
       // Default values
       def colorName = 'RED'
