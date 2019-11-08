@@ -101,6 +101,5 @@ node {
         summary = "${subject} (${env.BUILD_URL}) : *@here Acceptance Tests Failure*"
       }
 
-      // Send notifications
-      slackSend (color: colorCode, message: summary)
+      
 }
