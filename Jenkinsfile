@@ -27,6 +27,7 @@ node {
     stage 'Run Tests'
 
         if(SUITE != null){
+		    echo 'SUITE'
             if (SUITE != 'all'){
                 sh "${mvnHome}/bin/mvn clean install -Dmaven.test.failure.ignore=false -Denv.HOME=${ENVIRONMENT} -Dhub=hubtest -Dcucumber.options='-t @${SUITE}'"
             }else{
@@ -69,7 +70,19 @@ node {
       // build status of null means successful
       buildStatus =  buildStatus ?: 'SUCCESSFUL'
 
-      
+      GIT_NAME = sh (
+                script: 'git --no-pager show -s --format=\'%an\'',
+                returnStdout: true
+                ).trim()
+
+      GIT_EMAIL = sh (
+                  script: 'git --no-pager show -s --format=\'%ae\'',
+                  returnStdout: true
+                  ).trim()
+
+      def SLACK_USER_NAME_AND_EMAIL = GIT_EMAIL.split( '@' )
+      SLACK_USER_NAME = SLACK_USER_NAME_AND_EMAIL[0]
+
       // Default values
       def colorName = 'RED'
       def colorCode = '#FF0000'
@@ -89,5 +102,6 @@ node {
         summary = "${subject} (${env.BUILD_URL}) : *@here Acceptance Tests Failure*"
       }
 
-      
+      // Send notifications
+      slackSend (color: colorCode, message: summary)
 }
