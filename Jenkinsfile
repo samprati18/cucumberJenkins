@@ -69,15 +69,7 @@ node {
       // build status of null means successful
       buildStatus =  buildStatus ?: 'SUCCESSFUL'
 
-      GIT_NAME = sh (
-                script: 'git --no-pager show -s --format=\'%an\'',
-                returnStdout: true
-                ).trim()
-
       
-
-     
-
       // Default values
       def colorName = 'RED'
       def colorCode = '#FF0000'
