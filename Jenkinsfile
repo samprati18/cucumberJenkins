@@ -9,7 +9,7 @@ pipeline{
 
             steps {
 
-                sh "${mvnHome}/bin/mvn clean install
+                sh "${mvnHome}/bin/mvn clean install"
 
             }
         }
@@ -17,7 +17,7 @@ pipeline{
 
             steps {
 
-                sh "${mvnHome}/bin/mvn test
+                sh "${mvnHome}/bin/mvn test"
 
             }
         }
