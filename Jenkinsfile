@@ -3,23 +3,26 @@ pipeline{
     agent any
 
     stages {
-	    
 
         stage ('Compile Stage') {
 
             steps {
-			    def mvnHome = tool 'Maven 3.5.0'
 
-                sh "${mvnHome}/bin/mvn clean install"
+                withMaven(maven: 'Maven 3.5.0') {
+                    sh 'mvn clean install'
+
+                }
 
             }
         }
     stage ('Test Stage') {
 
             steps {
-			    def mvnHome = tool 'Maven 3.5.0'
 
-                sh "${mvnHome}/bin/mvn test"
+                withMaven(maven: 'Maven 3.5.0') {
+                    sh 'mvn test'
+
+                }
 
             }
         }
