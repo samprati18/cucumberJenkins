@@ -10,11 +10,7 @@ thirdEnvVar= 'THIRD_VAR'
 }
 //4. Stages
     stages {
-        stage('Test'){
-             //conditional for parameter
-            
-     
-        }
+        
 //5. demo parallel stage with script
         stage ('Run demo parallel stages') {
 steps {
