@@ -13,7 +13,7 @@ thirdEnvVar= 'THIRD_VAR'
         stage('Test'){
              //conditional for parameter
             
-            echo 'Test'
+     
         }
 //5. demo parallel stage with script
         stage ('Run demo parallel stages') {
